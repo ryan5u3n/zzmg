@@ -1,32 +1,55 @@
 # ==================================
 # HSBC Hong Kong & Global View 直连规则
-# 适用于 Quantumult X / Surge / Loon / Shadowrocket
-# 确保香港汇丰银行 App 全流量直连，不走代理
+# 备注全部独立一行
 # ==================================
 
 # ------------------------------
-# HSBC 香港核心银行服务
+# HSBC 香港核心服务
 # ------------------------------
-host-suffix,hsbc.com.hk,DIRECT        # 香港汇丰官网 & 手机银行主请求
-host-suffix,hsbc.com,DIRECT           # 全球汇丰主域名
+# 香港汇丰官网 & 手机银行核心域
+host-suffix,hsbc.com.hk,DIRECT
+
+# 全球汇丰主域
+host-suffix,hsbc.com,DIRECT
+
 host-suffix,hsbcnet.com.hk,DIRECT
-host-suffix,payme.hsbc.com.hk,DIRECT  # PayMe 与 HSBC 的账户关联服务
-host-suffix,payme.com.hk,DIRECT       # PayMe 主域名
-host-suffix,payme-cdn.com,DIRECT      # PayMe CDN
+
+
+# PayMe 与汇丰账户连接
+host-suffix,payme.hsbc.com.hk,DIRECT
+
+# PayMe 主域名
+host-suffix,payme.com.hk,DIRECT
+
+# PayMe CDN
+host-suffix,payme-cdn.com,DIRECT
+
 
 # ------------------------------
-# HSBC 内部服务与核心 API
+# HSBC 内部服务与 API
 # ------------------------------
-host-suffix,mobile.hsbc,DIRECT        # 汇丰手机服务 API
-host-suffix,hsbcnet.com,DIRECT        # 汇丰企业网银/中间服务
-host-suffix,hsbcapi.com,DIRECT        # 手机银行 API 核心域
-host-suffix,hsbcdynamic.com,DIRECT    # 风控/动态资源
-host-suffix,hsbcgroup.com,DIRECT      # 汇丰集团域
-host-suffix,myhsbc.com,DIRECT         # MyHSBC 登录/身份识别
+# 汇丰手机内部接口
+host-suffix,mobile.hsbc,DIRECT
+
+# 企业网银/中间服务
+host-suffix,hsbcnet.com,DIRECT
+
+# API 主域（登录 / 转账）
+host-suffix,hsbcapi.com,DIRECT
+
+# 动态资源 / 风控
+host-suffix,hsbcdynamic.com,DIRECT
+
+# 汇丰集团主域
+host-suffix,hsbcgroup.com,DIRECT
+
+# MyHSBC 登录体系
+host-suffix,myhsbc.com,DIRECT
+
 
 # ------------------------------
-# Adobe / Omniture 分析服务（App 每次启动必连）
-# 若不直连会造成启动卡顿或加载失败
+# Adobe / Omniture 分析服务
+# App 启动必连，不直连会卡顿
 # ------------------------------
 host-suffix,112.2o7.net,DIRECT
 host-suffix,demdex.net,DIRECT
@@ -34,18 +57,25 @@ host-suffix,adobedtm.com,DIRECT
 host-suffix,omtrdc.net,DIRECT
 host-suffix,sc.omtrdc.net,DIRECT
 
-# ------------------------------
-# 身份验证 / 3D Secure 安全链路
-# 涉及信用卡支付认证、设备指纹等
-# ------------------------------
-host-suffix,cardinalcommerce.com,DIRECT    # Visa 3DS 服务商
-host-suffix,arcot.com,DIRECT               # Mastercard / Amex 3DS 安全认证
-host-suffix,hook.arcot.com,DIRECT          # Arcot 子域
-host-suffix,v1-idm-hk.hsbc.com.hk,DIRECT   # 汇丰香港身份服务
 
 # ------------------------------
-# CDN：Akamai / Azure（HSBC 使用非常多）
-# 若不直连会导致启动慢、行情加载失败
+# 登录验证 / 3D Secure
+# ------------------------------
+# Visa 3DS 身份认证
+host-suffix,cardinalcommerce.com,DIRECT
+
+# Mastercard / Amex 3DS
+host-suffix,arcot.com,DIRECT
+
+# Arcot 安全接口
+host-suffix,hook.arcot.com,DIRECT
+
+# 汇丰香港身份服务
+host-suffix,v1-idm-hk.hsbc.com.hk,DIRECT
+
+
+# ------------------------------
+# Akamai CDN（汇丰最常用）
 # ------------------------------
 host-suffix,akamaiedge.net,DIRECT
 host-suffix,akamaitechnologies.com,DIRECT
@@ -53,24 +83,38 @@ host-suffix,akamaized.net,DIRECT
 host-suffix,edgesuite.net,DIRECT
 host-suffix,akadns.net,DIRECT
 
+
+# ------------------------------
+# Azure CDN（汇丰使用大量）
+# ------------------------------
 host-suffix,azureedge.net,DIRECT
 host-suffix,azurefd.net,DIRECT
 host-suffix,azure-api.net,DIRECT
 
+
 # ------------------------------
-# Google/Firebase 行为/崩溃统计（不影响访问墙外网站）
+# Google/Firebase 行为统计
+# 不影响墙外访问，建议直连
 # ------------------------------
 host-suffix,googletagmanager.com,DIRECT
 host-suffix,app-measurement.com,DIRECT
 
+
 # ------------------------------
-# 其他国家/地区汇丰（Global View 必需）
-# 若你绑定多国 HSBC，此处必须直连
+# 多地区 HSBC（Global View 必备）
 # ------------------------------
-host-suffix,hsbc.com.cn,DIRECT        # 中国大陆汇丰
-host-suffix,hsbc.com.sg,DIRECT        # 新加坡汇丰
-host-suffix,hsbc.co.uk,DIRECT         # 英国汇丰
-host-suffix,us.hsbc.com,DIRECT        # 美国汇丰
+# 大陆汇丰
+host-suffix,hsbc.com.cn,DIRECT
+
+# 新加坡汇丰
+host-suffix,hsbc.com.sg,DIRECT
+
+# 英国汇丰
+host-suffix,hsbc.co.uk,DIRECT
+
+# 美国汇丰
+host-suffix,us.hsbc.com,DIRECT
+
 
 # ==================================
 # 文件结束
