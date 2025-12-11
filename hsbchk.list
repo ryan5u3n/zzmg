@@ -1,0 +1,43 @@
+# ==================================
+# HSBC Hong Kong & Global View (核心业务)
+# ==================================
+# 覆盖手机银行、网银、PayMe、股票交易
+host-suffix, hsbc.com.hk, DIRECT
+host-suffix, hsbc.com, DIRECT
+host-suffix, payme.hsbc.com.hk, DIRECT
+
+# HSBC 品牌顶级域与内部服务 (Global View/转账链路)
+host-suffix, hsbc, DIRECT
+host-suffix, mobile.hsbc, DIRECT
+host-suffix, hsbcnet.com, DIRECT
+host-suffix, hsbcapi.com, DIRECT
+host-suffix, hsbcdynamic.com, DIRECT
+host-suffix, hsbcgroup.com, DIRECT
+host-suffix, myhsbc.com, DIRECT
+
+# ==================================
+# 关键第三方依赖 (App 启动必连)
+# ==================================
+# Adobe/Omniture 分析服务 (HSBC App 启动时会在此卡顿，必须直连)
+host-suffix, 112.2o7.net, DIRECT
+host-suffix, dpm.demdex.net, DIRECT
+host-suffix, adobedtm.com, DIRECT
+host-suffix, omtrdc.net, DIRECT
+host-suffix, sc.omtrdc.net, DIRECT
+
+# ==================================
+# 身份验证与安全 (3D Secure / 设备指纹)
+# ==================================
+# 涉及刷脸、指纹登录及信用卡 3DS 验证
+host-suffix, cardinalcommerce.com, DIRECT
+host-suffix, hook.arcot.com, DIRECT
+host-suffix, v1-idm-hk.hsbc.com.hk, DIRECT
+
+# ==================================
+# 其他地区汇丰 (Global View 环球账户互转)
+# ==================================
+# 如果您不仅使用香港汇丰，还使用内地或新加坡汇丰，建议加上
+host-suffix, hsbc.com.cn, DIRECT
+host-suffix, hsbc.com.sg, DIRECT
+host-suffix, hsbc.co.uk, DIRECT
+host-suffix, us.hsbc.com, DIRECT
